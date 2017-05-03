@@ -1,0 +1,2 @@
+# Solutions
+Competitive programming solutions

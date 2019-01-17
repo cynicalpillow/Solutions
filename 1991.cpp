@@ -12,8 +12,18 @@ int INFINITE = 0x3f3f3f3f;
 int n, k;
 
 int main(){
+	cin.sync_with_stdio(0);
+    cin.tie(0);
 	freopen("input.txt", "r", stdin);
-    scanf("%d %d",&n,&k);
-    printf("%d\n",n <= k? 2 : (2*n + k - 1) / k);
+	cin >> n >> k;
+	int leftOver = 0;
+	int leftOverD = 0;
+	for(int i = 0; i < n; i++){
+		int x;
+		cin >> x;
+		leftOver += max(0, x-k);
+		leftOverD += max(0, k-x);
+	}
+	cout << leftOver << " " << leftOverD;
 	return 0;
 }

@@ -8,12 +8,24 @@ using namespace std;
 #define mp make_pair
 #define pb push_back
 
-int INFINITE = 0x3f3f3f3f;
-int n, k;
+int n;
+set<int> val;
 
 int main(){
 	freopen("input.txt", "r", stdin);
-    scanf("%d %d",&n,&k);
-    printf("%d\n",n <= k? 2 : (2*n + k - 1) / k);
+	int count = 1; int i = 1;
+	val.insert(i);
+	while(i >= 0){
+		i += count;
+		count++;
+		val.insert(i);
+	}
+	scanf("%i", &n);
+	for(int i = 0; i < n; i++){
+		int x;
+		scanf("%i", &x);
+		if(val.count(x))printf("%d ", 1);
+		else printf("%d ", 0);
+	}
 	return 0;
 }

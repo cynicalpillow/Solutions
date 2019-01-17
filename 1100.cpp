@@ -9,11 +9,23 @@ using namespace std;
 #define pb push_back
 
 int INFINITE = 0x3f3f3f3f;
-int n, k;
+map<int, vector<int>, greater<int>> mpp;
+int n;
 
 int main(){
+	cin.sync_with_stdio(0);
+    cin.tie(0);
 	freopen("input.txt", "r", stdin);
-    scanf("%d %d",&n,&k);
-    printf("%d\n",n <= k? 2 : (2*n + k - 1) / k);
+	cin >> n;
+	for(int i = 0; i < n; i++){
+		int x, y;
+		cin >> x >> y;
+		mpp[y].pb(x);
+	}
+	for(auto a : mpp){
+		for(int x : a.second){
+			cout << x << " " << a.first << endl;
+		}
+	}
 	return 0;
 }

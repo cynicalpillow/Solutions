@@ -9,11 +9,21 @@ using namespace std;
 #define pb push_back
 
 int INFINITE = 0x3f3f3f3f;
-int n, k;
+int n;
+string st;
 
 int main(){
+	cin.sync_with_stdio(0);
+    cin.tie(0);
 	freopen("input.txt", "r", stdin);
-    scanf("%d %d",&n,&k);
-    printf("%d\n",n <= k? 2 : (2*n + k - 1) / k);
+	cin >> n;
+	int c = 2;
+	for(int i = 0; i < n; i++){
+		c++;
+		cin >> st;
+		if(st.length() >= 4 && st.substr(st.length()-4, 4) == "+one")c++;
+	}
+	if(c == 13)c++;
+	cout << c*100;
 	return 0;
 }

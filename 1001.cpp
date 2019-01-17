@@ -9,11 +9,18 @@ using namespace std;
 #define pb push_back
 
 int INFINITE = 0x3f3f3f3f;
-int n, k;
+vector<double> outputs;
+long long x;
 
 int main(){
+	cin.sync_with_stdio(0);
+    cin.tie(0);
 	freopen("input.txt", "r", stdin);
-    scanf("%d %d",&n,&k);
-    printf("%d\n",n <= k? 2 : (2*n + k - 1) / k);
+	while(cin >> x){
+		outputs.pb(sqrt(x));
+	}
+	for(int i = outputs.size()-1; i >= 0; i--){
+		printf("%.4f\n", outputs[i]);
+	}
 	return 0;
 }

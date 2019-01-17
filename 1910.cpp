@@ -9,11 +9,26 @@ using namespace std;
 #define pb push_back
 
 int INFINITE = 0x3f3f3f3f;
-int n, k;
+int n, ai;
+int secs[1005];
 
 int main(){
+	cin.sync_with_stdio(0);
+    cin.tie(0);
 	freopen("input.txt", "r", stdin);
-    scanf("%d %d",&n,&k);
-    printf("%d\n",n <= k? 2 : (2*n + k - 1) / k);
+	cin >> n;
+	for(int i = 0; i < n; i++){
+		cin >> ai;
+		secs[i] = ai;
+	}
+	int cmax = 0;
+	int cmid = 0;
+	for(int i = 0; i < n-2; i++){
+		if(secs[i] + secs[i+1] + secs[i+2] > cmax){
+			cmax = secs[i] + secs[i+1] + secs[i+2];
+			cmid = i+2;
+		}
+	}
+	cout << cmax << " " << cmid;
 	return 0;
 }
